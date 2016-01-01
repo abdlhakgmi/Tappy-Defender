@@ -12,6 +12,8 @@ public class PlayerShip {
 
     private final int Gravity = -12;
 
+    private int shieldStrength;
+
     // Stop ship leaving the screen
     private int maxY;
     private int minY;
@@ -36,6 +38,7 @@ public class PlayerShip {
         boosting = false;
         maxY = screenY - bitmap.getHeight();
         minY = 0;
+        shieldStrength = 2;
 
         // Initialize the hit box
         hitBox = new Rect(x, y, bitmap.getWidth(), bitmap.getHeight());
@@ -101,11 +104,19 @@ public class PlayerShip {
         return hitBox;
     }
 
+    public int getShieldStrength() {
+        return shieldStrength;
+    }
+
     public void setBoosting() {
         boosting = true;
     }
 
     public void stopBoostring(){
         boosting = false;
+    }
+
+    public void reduceShieldStrength() {
+        shieldStrength--;
     }
 }
